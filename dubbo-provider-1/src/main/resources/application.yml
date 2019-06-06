@@ -1,0 +1,22 @@
+
+
+project:
+  service:
+    version: 1.0.0
+
+dubbo:
+  application:
+    name: ${spring.application.name}
+  scan:
+    base-packages: com.middol.dubboprovider1.service.impl
+  protocol:
+    port: 20880
+    name: dubbo
+    id: dubbo
+  registry:
+    # 配置多个zookeeper集群中的多个服务器所在地址
+    address: zookeeper://a:2181?backup=b:2181,c:2181
+
+spring:
+  application:
+    name: dubbo-provider-1
